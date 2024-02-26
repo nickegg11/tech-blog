@@ -1,0 +1,15 @@
+{{!-- views/editPost.handlebars --}}
+<form action="/dashboard/edit/{{post.id}}" method="POST">
+    <div class="edit-post-container">
+        <h2>Edit Post</h2>
+        <div class="form-group">
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" name="title" value="{{post.title}}" required>
+        </div>
+        <div class="form-group">
+            <label for="post-body">Body</label>
+            <textarea id="post-body" name="body" rows="10" required>{{post.body}}</textarea>
+        </div>
+        <button type="submit" class="btn">Save changes</button>
+    </div>
+</form>

@@ -1,0 +1,55 @@
+{{!-- views/post.handlebars --}}
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{post.title}}</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap' rel='stylesheet' />
+    <link rel='stylesheet' href='/css/style.css' />
+</head>
+
+<body class='flex-column min-100-vh'>
+    <nav class='navbar'>
+        <ul class='flex-row'>
+            <li class='li-inline nav-item'><a href='/'>Home</a></li>
+            <li class='li-inline nav-item'><a href='/dashboard'>Dashboard</a></li>
+            {{#if loggedIn}}
+            <li class='li-inline nav-item'><a href='#' id='logout'>Logout</a></li>
+            {{else}}
+            <li class='li-inline nav-item'><a href='/login'>Login</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
+    <main class='col-auto'>
+        <div class="content-container">
+            <article class="post-detail">
+                <h2 class="post-title">{{post.title}}</h2>
+                <p class="post-body">{{post.body}}</p>
+                <div class="post-meta">
+                    <span>Posted by {{post.author.username}} on {{formatDate post.createdAt}}</span>
+                </div>
+            </article>
+
+            {{!-- Post Comments --}}
+            {{> comments comments=post.comments}}
+
+            {{!-- Comment Form --}}
+            {{#if loggedIn}}
+            <form action="/post/{{post.id}}/comment" method="POST" class="comment-form">
+                <textarea name="commentBody" rows="3" placeholder="Leave a comment..." required></textarea>
+                <button type="submit" class="btn">Comment</button>
+            </form>
+            {{/if}}
+        </div>
+    </main>
+
+    <footer class='flex-row justify-center'>
+        &copy; The Tech Blog Folks
+    </footer>
+</body>
+
+</html>

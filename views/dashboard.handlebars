@@ -1,0 +1,14 @@
+{{!-- views/dashboard.handlebars --}}
+<div class="dashboard-container">
+    <h2>Your Posts</h2>
+    {{#each posts}}
+    <div class="post">
+        <h3 class="post-title">{{this.title}}</h3>
+        <p class="post-body">{{this.body}}</p>
+        <a href="/dashboard/edit/{{this.id}}" class="edit-post-btn">Edit</a>
+        <button type="button" class="delete-post-btn" data-id="{{this.id}}">Delete</button>
+    </div>
+    {{else}}
+    <p>You have not created any posts yet.</p>
+    {{/each}}
+</div>
