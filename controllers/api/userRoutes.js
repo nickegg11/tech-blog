@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+import { User } from '../../models';
 
 router.post('/', async (req, res) => {
     try {
@@ -63,4 +63,4 @@ router.post('/logout', (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
-const { apiGuard } = require('../../utils/authGuard');
+import { Comment } from '../../models';
+import { apiGuard } from '../../utils/authGuard';
 
 router.post('/', apiGuard, async (req, res) => {
     try {
@@ -15,4 +15,4 @@ router.post('/', apiGuard, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
