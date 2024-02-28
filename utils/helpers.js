@@ -1,5 +1,6 @@
 module.exports = {
-    formatDate: (date) => {
-        return date.toLocaleDateString();
-    },
+  formatDate: (date) => {
+    // Format date as MM/DD/YYYY
+    return date.toLocaleDateString();
+  },
 };
